@@ -25,7 +25,7 @@ export default function Footer() {
           {[
             { label: "Home", to: "/" },
             { label: "About", to: "/about" },
-            { label: "Flours", to: "/flours" },
+            { label: "Products", to: "/Products" },
             { label: "Contact", to: "/contact" },
           ].map((l) => (
             <Link key={l.to} to={l.to} className="text-sm text-cream/75 hover:text-gold">

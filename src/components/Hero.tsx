@@ -86,7 +86,7 @@ export default function Hero({ hero }: { hero: HomePageContent["hero"] }) {
             className="flex flex-wrap gap-4 pt-2"
           >
            <Link
-  to="/flours"
+  to="/Products"
   className="rounded-full bg-[#C98A3A] px-7 py-3.5 text-[13px] font-semibold uppercase tracking-wide text-[#063B2E] shadow-md transition-transform hover:scale-[1.03] hover:bg-[#E0A75E]"
 >
   {hero.primaryCta}

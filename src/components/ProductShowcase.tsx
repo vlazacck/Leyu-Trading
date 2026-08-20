@@ -89,7 +89,7 @@ export default function ProductShowcase({ products }: { products: Product[] }) {
                   ))}
                 </ul>
                 <Link
-                  to={`/flours/${product.slug}`}
+                  to={`/Products/${product.slug}`}
                   className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-forest transition-colors group-hover:text-gold"
                 >
                   View details <ArrowUpRight size={15} />

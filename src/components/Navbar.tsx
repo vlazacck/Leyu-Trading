@@ -8,7 +8,7 @@ import { urlForImage } from "../lib/sanity";
 const links = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Flours", to: "/flours" },
+  { label: "Products", to: "/Products" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -114,7 +114,7 @@ export default function Navbar() {
           {/* Right Side */}
           <div className="flex items-center gap-4">
             <Link
-              to="/flours"
+              to="/Products"
               className={`hidden rounded-full bg-gold font-semibold uppercase tracking-wide text-forest shadow-lg transition-all duration-300 hover:scale-105 hover:bg-gold-light sm:inline-flex items-center justify-center ${
                 scrolled
                   ? "px-6 py-3 text-sm"
@@ -205,7 +205,7 @@ export default function Navbar() {
                   ))}
 
                   <Link
-                    to="/flours"
+                    to="/Products"
                     onClick={() => setOpen(false)}
                     className="mt-8 rounded-full bg-gold px-6 py-4 text-center text-sm font-semibold uppercase tracking-wide text-forest transition hover:bg-gold-light"
                   >

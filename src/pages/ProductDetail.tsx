@@ -23,10 +23,10 @@ export default function ProductDetail() {
         </h1>
 
         <Link
-          to="/flours"
+          to="/Products"
           className="mt-4 inline-block text-forest-light underline"
         >
-          Back to all flours
+          Back to all Products
         </Link>
       </div>
     );
