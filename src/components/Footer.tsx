@@ -13,7 +13,7 @@ export default function Footer() {
            {settings?.logo && (
     <img src={urlForImage(settings.logo)} alt={settings.companyName || "Logo"} className="h-10 w-10 rounded-full object-contain" />
   )}
-          <span className="font-display text-xl font-semibold">{settings?.companyName ?? "  Leyu Teff"}</span>
+          <span className="font-display text-xl font-semibold">{settings?.companyName ?? "  Maed Export Trading "}</span>
           <p className="max-w-xs text-sm leading-relaxed text-cream/65">
             Premium Ethiopian teff flour and grain, exported to food manufacturers, distributors, and
             wholesalers around the world.

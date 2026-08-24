@@ -1,9 +1,9 @@
 import type { AboutPageContent, Agent, Benefit, HomePageContent, Product, SiteSettings } from "../types";
 
 export const mockSiteSettings: SiteSettings = {
-  companyName: "Leyu Teff",
+  companyName: "Maed Export Trading ",
   phones: ["+251 911 532 949", "+251 911 264 129", "+251 962 606 060"],
-  email: "contact@leyu-teff.com",
+  email: "contact@Maed Export Trading .com",
   address: "Debre Markos Industrial Zone, Debre Markos, Ethiopia",
   businessHours: "Monday – Friday, 8:00 AM – 5:00 PM",
   ceoName: "Semahegn Getachew",
@@ -28,7 +28,7 @@ export const mockHomePage: HomePageContent = {
 export const mockAboutPage: AboutPageContent = {
   eyebrow: "Our Story",
   title: "Connecting Ethiopian Heritage to the World",
-  introduction: "Leyu Teff produces premium-quality teff flour and grain directly from Ethiopian farms, using modern processing techniques while preserving the grain's natural nutritional value. Based in Debre Markos, we bring together generations of agricultural tradition and modern export standards.",
+  introduction: " Maed Export Trading  produces premium-quality teff flour and grain directly from Ethiopian farms, using modern processing techniques while preserving the grain's natural nutritional value. Based in Debre Markos, we bring together generations of agricultural tradition and modern export standards.",
   commitmentEyebrow: "What Guides Us",
   commitmentTitle: "Our Commitment to Every Shipment",
   commitmentDescription: "From the highland farms of Debre Markos to ports around the world, quality and reliability guide every decision we make.",

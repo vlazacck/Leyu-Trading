@@ -1,4 +1,4 @@
-#  Leyu Teff — Export Website
+#  Maed Export Trading  Website
 
 A production-ready B2B export website for a premium Ethiopian teff flour/grain
 exporter, built with React 19, Vite, TypeScript, Tailwind CSS, Framer Motion,

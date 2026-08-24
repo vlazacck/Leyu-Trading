@@ -122,13 +122,13 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <span className="mb-3 inline-block text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">
-              About leyu Teff
+              About Maed Export Trading 
             </span>
             <h2 className="font-display text-3xl font-semibold leading-tight sm:text-4xl">
               From Ethiopian Farms to the World's Kitchens
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-cream/75">
-              Leyu Teff produces premium-quality teff flour directly from Ethiopian farms, using modern
+             Maed Export Trading produces premium-quality teff flour directly from Ethiopian farms, using modern
               processing techniques that preserve the grain's natural nutritional value. We combine
               sustainable farming practices, rigorous quality control, and food-safety standards with a
               dedication to reliable export service — connecting traditional Ethiopian agriculture to
@@ -201,7 +201,7 @@ export default function Home() {
           <SectionTitle
             eyebrow="Global Network"
             title="Trusted International Partners"
-            description="Our global agents help distribute Leyu Teff products across international markets."
+            description="Our global agents help distribute Maed Export Trading  products across international markets."
           />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {agents.map((a, i) => (
