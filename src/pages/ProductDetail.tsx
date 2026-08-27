@@ -33,16 +33,20 @@ export default function ProductDetail() {
   }
 
   const specRows = [
-    ["Purity", product.specs.purity],
-    ["Moisture Content", product.specs.moisture],
-    ["Shelf Life", product.specs.shelfLife],
-    ["Packaging", product.specs.packaging.join(", ")],
-    ["Minimum Order Quantity", product.specs.moq],
-    ["Container Load", product.specs.containerLoad],
-    ["Country of Origin", product.specs.origin],
-    ["Harvest Season", product.specs.harvestSeason],
-    ["Storage", product.specs.storage],
-  ];
+    ["Purity", product.specs?.purity],
+    ["Moisture Content", product.specs?.moisture],
+    ["Shelf Life", product.specs?.shelfLife],
+    ["Packaging", product.specs?.packaging?.join(", ")],
+    ["Minimum Order Quantity", product.specs?.moq],
+    ["Container Load", product.specs?.containerLoad],
+    ["Country of Origin", product.specs?.origin],
+    ["Harvest Season", product.specs?.harvestSeason],
+    ["Storage", product.specs?.storage],
+  ].filter(([, value]) => value);
+
+  const applications = product.applications ?? [];
+  const highlights = product.highlights ?? [];
+  const gallery = product.gallery ?? [];
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-20 lg:px-10">
@@ -52,8 +56,9 @@ export default function ProductDetail() {
         transition={{ duration: 0.5 }}
       >
         <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-forest-light">
-          {product.type === "flour" ? "Teff Flour" : "Teff Grain"} ·{" "}
-          {product.variant === "white" ? "White" : "Brown"}
+          {product.type && `${product.type.charAt(0).toUpperCase()}${product.type.slice(1)}`}
+          {product.type && product.variant && " · "}
+          {product.variant && `${product.variant.charAt(0).toUpperCase()}${product.variant.slice(1)}`}
         </span>
 
         <h1 className="mt-2 font-display text-4xl font-semibold text-ink">
@@ -76,9 +81,9 @@ export default function ProductDetail() {
 
             {/* Product Image */}
             <div>
-              {product.gallery?.length > 0 && (
+              {gallery.length > 0 && (
                 <img
-                  src={urlForImage(product.gallery[0])}
+                  src={urlForImage(gallery[0])}
                   alt={product.name}
                   className="aspect-square w-full rounded-xl2 object-cover ring-1 ring-forest/5"
                 />
@@ -88,27 +93,24 @@ export default function ProductDetail() {
             {/* Applications + Highlights */}
             <div className="flex flex-col justify-start">
 
-              <h2 className="font-display text-lg font-semibold text-ink">
-                Culinary Applications
-              </h2>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                {product.applications.map((application) => (
+              {applications.length > 0 && <>
+                <h2 className="font-display text-lg font-semibold text-ink">Culinary Applications</h2>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {applications.map((application) => (
                   <span
                     key={application}
                     className="rounded-full bg-forest/5 px-4 py-2 text-sm font-medium text-forest-light"
                   >
                     {application}
                   </span>
-                ))}
-              </div>
+                  ))}
+                </div>
+              </>}
 
-              <h2 className="mt-10 font-display text-lg font-semibold text-ink">
-                Product Highlights
-              </h2>
-
-              <ul className="mt-4 space-y-3">
-                {product.highlights.map((highlight) => (
+              {highlights.length > 0 && <>
+                <h2 className="mt-10 font-display text-lg font-semibold text-ink">Product Highlights</h2>
+                <ul className="mt-4 space-y-3">
+                  {highlights.map((highlight) => (
                   <li
                     key={highlight}
                     className="flex items-start gap-3 text-sm text-ink/70"
@@ -116,16 +118,17 @@ export default function ProductDetail() {
                     <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gold" />
                     <span>{highlight}</span>
                   </li>
-                ))}
-              </ul>
+                  ))}
+                </ul>
+              </>}
 
             </div>
           </div>
 
           {/* Gallery Thumbnails */}
-          {product.gallery?.length > 1 && (
+          {gallery.length > 1 && (
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-              {product.gallery.slice(1).map((img, index) => (
+              {gallery.slice(1).map((img, index) => (
                 <img
                   key={index}
                   src={urlForImage(img)}
@@ -139,7 +142,7 @@ export default function ProductDetail() {
         </div>
 
         {/* Right Side - Specifications */}
-        <div className="rounded-xl2 bg-cream p-7 ring-1 ring-forest/5">
+        {specRows.length > 0 && <div className="rounded-xl2 bg-cream p-7 ring-1 ring-forest/5">
 
           <h2 className="font-display text-lg font-semibold text-ink">
             Export Specifications
@@ -167,7 +170,7 @@ export default function ProductDetail() {
             Request a Quote
           </Link>
 
-        </div>
+        </div>}
       </div>
     </div>
   );

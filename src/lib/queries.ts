@@ -2,7 +2,8 @@ export const homePageQuery = `*[_type == "homePage"][0]{
   hero,
   culinaryApplications,
   ancientSupergrain,
-  "featuredProducts": featuredProducts[]->{ _id, name, "slug": slug.current, type, variant, tagline, gallery },
+  featuredProductsSection,
+  "featuredProducts": featuredProducts[]->{ _id, name, "slug": coalesce(slug.current, _id), type, variant, tagline, gallery },
   "benefits": benefits[]->{ _id, title, description, icon },
   "agents": agents[]->{ _id, companyName, country, location, phone, email },
   seo
@@ -20,11 +21,11 @@ export const aboutPageQuery = `*[_id == "aboutPage"][0]{
 }`;
 
 export const productsQuery = `*[_type == "product"] | order(variant asc, type asc){
-  _id, name, "slug": slug.current, type, variant, tagline, description, highlights, gallery
+  _id, name, "slug": coalesce(slug.current, _id), type, variant, tagline, description, highlights, gallery
 }`;
 
-export const productBySlugQuery = `*[_type == "product" && slug.current == $slug][0]{
-  _id, name, "slug": slug.current, type, variant, tagline, description,
+export const productBySlugQuery = `*[_type == "product" && (lower(slug.current) == lower($slug) || _id == $slug)][0]{
+  _id, name, "slug": coalesce(slug.current, _id), type, variant, tagline, description,
   highlights, applications, gallery, specs, seo
 }`;
 

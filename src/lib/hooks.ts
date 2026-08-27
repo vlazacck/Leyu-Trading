@@ -91,12 +91,13 @@ export function useProducts() {
 
 export function useProduct(slug: string | undefined) {
   return useQuery<Product | undefined>({
-    queryKey: ["product", slug],
+    queryKey: ["product", slug?.toLowerCase()],
     enabled: Boolean(slug),
     queryFn: async () => {
-      if (!isSanityConfigured) return mockProducts.find((p) => p.slug === slug);
-      const data = await sanityClient!.fetch(productBySlugQuery, { slug });
-      return data ?? mockProducts.find((p) => p.slug === slug);
+      const normalizedSlug = slug ? decodeURIComponent(slug).toLowerCase() : slug;
+      if (!isSanityConfigured) return mockProducts.find((p) => p.slug.toLowerCase() === normalizedSlug);
+      const data = await sanityClient!.fetch(productBySlugQuery, { slug: normalizedSlug });
+      return data ?? mockProducts.find((p) => p.slug.toLowerCase() === normalizedSlug);
     },
   });
 }

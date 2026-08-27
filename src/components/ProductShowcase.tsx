@@ -11,6 +11,16 @@ const ROTATE_INTERVAL_MS = 3200;
 export default function ProductShowcase({ products }: { products: Product[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [isCompact, setIsCompact] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 1023px)");
+    const updateCompactMode = () => setIsCompact(mediaQuery.matches);
+
+    updateCompactMode();
+    mediaQuery.addEventListener("change", updateCompactMode);
+    return () => mediaQuery.removeEventListener("change", updateCompactMode);
+  }, []);
 
   useEffect(() => {
     if (products.length < 2 || paused) return;
@@ -44,7 +54,7 @@ export default function ProductShowcase({ products }: { products: Product[] }) {
             transition={{ type: "spring", stiffness: 260, damping: 26 }}
             style={{ order }}
             animate={{
-              scale: isActive ? 1.08 : 0.92,
+              scale: isCompact ? 1 : isActive ? 1.08 : 0.92,
               opacity: isActive ? 1 : 0.75,
               zIndex: isActive ? 10 : 1,
             }}
@@ -89,7 +99,7 @@ export default function ProductShowcase({ products }: { products: Product[] }) {
                   ))}
                 </ul>
                 <Link
-                  to={`/Products/${product.slug}`}
+                  to={`/Products/${encodeURIComponent(product.slug)}`}
                   className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-forest transition-colors group-hover:text-gold"
                 >
                   View details <ArrowUpRight size={15} />

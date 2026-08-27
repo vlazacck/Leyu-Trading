@@ -32,6 +32,7 @@ export default function Home() {
   const featuredProducts = homeData.featuredProducts?.length ? homeData.featuredProducts : mockProducts.slice(0, 3);
   const benefits = homeData.benefits?.length ? homeData.benefits : mockBenefits;
   const agents = homeData.agents?.length ? homeData.agents : mockAgents;
+  const featuredProductsSection = homeData.featuredProductsSection ?? (mockHomePage as HomePageViewData).featuredProductsSection;
   const culinaryApplications = homeData.culinaryApplications ?? (mockHomePage as HomePageViewData).culinaryApplications ?? {
     eyebrow: "",
     title: "",
@@ -48,9 +49,9 @@ export default function Home() {
       {/* Featured products */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
         <SectionTitle
-          eyebrow="Flagship Exports"
-          title="Our Signature Teff Products"
-          description="Sergegna, Brown, and White Teff — grown in the Ethiopian highlands, milled with care, and ready for global markets."
+          eyebrow={featuredProductsSection?.eyebrow}
+          title={featuredProductsSection?.title ?? "Our Signature Teff Products"}
+          description={featuredProductsSection?.description}
         />
        <div className="mt-14">
   <ProductShowcase products={featuredProducts as any} />
@@ -203,10 +204,18 @@ export default function Home() {
             title="Trusted International Partners"
             description="Our global agents help distribute Maed Export Trading  products across international markets."
           />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {agents.map((a, i) => (
-              <AgentCard key={a._id} agent={a as any} index={i} />
-            ))}
+          <div className="partners-marquee mt-14 overflow-hidden" aria-label="Trusted international partners">
+            <div className="partners-marquee__track">
+              {[0, 1].map((group) => (
+                <div className="partners-marquee__group" aria-hidden={group === 1} key={group}>
+                  {agents.map((a, i) => (
+                    <div className="partners-marquee__card" key={`${group}-${a._id}`}>
+                      <AgentCard agent={a as any} index={i} />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

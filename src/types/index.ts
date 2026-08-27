@@ -15,23 +15,23 @@ export interface Product {
   _id: string;
   name: string;
   slug: string;
-  type: "flour" | "grain";
-  variant: "white" | "brown";
-  tagline: string;
-  description: string;
-  highlights: string[];
-  applications: string[];
-  gallery: SanityImage[];
-  specs: {
-    purity: string;
-    moisture: string;
-    shelfLife: string;
-    packaging: string[];
-    moq: string;
-    containerLoad: string;
-    origin: string;
-    harvestSeason: string;
-    storage: string;
+  type?: string;
+  variant?: string;
+  tagline?: string;
+  description?: string;
+  highlights?: string[];
+  applications?: string[];
+  gallery?: SanityImage[];
+  specs?: {
+    purity?: string;
+    moisture?: string;
+    shelfLife?: string;
+    packaging?: string[];
+    moq?: string;
+    containerLoad?: string;
+    origin?: string;
+    harvestSeason?: string;
+    storage?: string;
   };
   seo?: SeoData;
 }
@@ -75,6 +75,11 @@ export interface HomePageContent {
   ancientSupergrain: {
     title: string;
     body: string;
+  };
+  featuredProductsSection?: {
+    eyebrow?: string;
+    title?: string;
+    description?: string;
   };
   seo?: SeoData;
 }

@@ -46,7 +46,7 @@ export default function ProductCard({ product, index = 0 }: { product: Product; 
           ))}
         </ul>
         <Link
-          to={`/Products/${product.slug}`}
+          to={`/Products/${encodeURIComponent(product.slug)}`}
           className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-forest transition-colors group-hover:text-gold"
         >
           View details <ArrowUpRight size={15} />

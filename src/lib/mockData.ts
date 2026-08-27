@@ -23,6 +23,11 @@ export const mockHomePage: HomePageContent = {
     title: "Ethiopia's Ancient Supergrain",
     body: "Cultivated in Ethiopia for more than 6,000 years, teff has become globally recognized as a nutrient-rich superfood. Naturally gluten-free, complete in protein, rich in iron and fiber, and prized for its slow-release energy, teff is Ethiopia's gift to the world's kitchens.",
   },
+  featuredProductsSection: {
+    eyebrow: "Flagship Exports",
+    title: "Our Signature Teff Products",
+    description: "Sergegna, Brown, and White Teff — grown in the Ethiopian highlands, milled with care, and ready for global markets.",
+  },
 };
 
 export const mockAboutPage: AboutPageContent = {
