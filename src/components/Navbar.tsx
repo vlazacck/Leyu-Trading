@@ -31,7 +31,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-500 ${
+        className={`site-navbar sticky top-0 z-50 flex-none transition-all duration-500 ${
           scrolled
             ? "bg-forest shadow-xl"
             : "bg-forest"
