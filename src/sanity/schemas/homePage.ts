@@ -15,12 +15,17 @@ export default defineType({
         { name: "paragraph", title: "Supporting Paragraph", type: "text", rows: 3 },
         { name: "primaryCta", title: "Primary CTA Label", type: "string" },
         { name: "secondaryCta", title: "Secondary CTA Label", type: "string" },
-        { name: "image", title: "Hero Image", type: "image" },
+        {
+          name: "image",
+          title: "Hero Image",
+          type: "image",
+          options: { hotspot: true },
+        },
       ],
     }),
     defineField({
       name: "ancientSupergrain",
-      title: "Ancient Supergrain Section",
+      title: "Teff Flour Heritage Section",
       type: "object",
       fields: [
         { name: "title", title: "Title", type: "string" },

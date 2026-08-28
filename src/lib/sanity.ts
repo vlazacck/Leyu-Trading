@@ -1,4 +1,5 @@
 import { createClient, type SanityClient } from "@sanity/client";
+import imageUrlBuilder from "@sanity/image-url";
 
 // Populate these via a .env file (see .env.example) once your Sanity project
 // is created. The app falls back to local mock content (src/lib/mockData.ts)
@@ -20,11 +21,22 @@ export const sanityClient: SanityClient | null = isSanityConfigured
     })
   : null;
 
-export function urlForImage(source?: { asset?: { _ref: string } }): string {
-  if (!source?.asset?._ref) return "";
-  const ref = source.asset._ref; // image-<hash>-<dimensions>-<format>
-  const [, id, dimensions, format] = ref.split("-");
-  const projectId = import.meta.env.VITE_SANITY_PROJECT_ID;
-  const dataset = import.meta.env.VITE_SANITY_DATASET || "production";
-  return `https://cdn.sanity.io/images/${projectId}/${dataset}/${id}-${dimensions}.${format}`;
+const imageBuilder = isSanityConfigured
+  ? imageUrlBuilder({
+      projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
+      dataset: import.meta.env.VITE_SANITY_DATASET || "production",
+    })
+  : null;
+
+export function urlForImage(
+  source?: { asset?: { _ref: string } },
+  dimensions?: { width: number; height: number },
+): string {
+  if (!source?.asset?._ref || !imageBuilder) return "";
+
+  const builder = imageBuilder.image(source).auto("format");
+  return (dimensions
+    ? builder.width(dimensions.width).height(dimensions.height).fit("crop")
+    : builder
+  ).url();
 }

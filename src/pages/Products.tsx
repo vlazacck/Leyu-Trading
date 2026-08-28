@@ -9,7 +9,7 @@ export default function Products() {
     <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10">
       <SectionTitle
         eyebrow="Export Catalog"
-        title="Teff Flour & Grain, Ready for Export"
+        title="Teff Flour, Ready for Export"
         description="Full specifications, packaging options, and export documentation available for every product below."
       />
       {isLoading ? (

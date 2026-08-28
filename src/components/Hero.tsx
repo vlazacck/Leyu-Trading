@@ -114,9 +114,13 @@ export default function Hero({ hero }: { hero: HomePageContent["hero"] }) {
     initial={{ opacity: 0, scale: 0.92 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-    src={hero.image?.asset ? urlForImage(hero.image) : "/teff2.webp"}
-    alt={hero.image?.alt || "Teff flour and grain"}
-    className="relative z-0 h-[360px] w-[420px] object-contain drop-shadow-2xl sm:h-[430px] sm:w-[520px] lg:h-[520px] lg:w-[620px]"
+    src={
+      hero.image?.asset
+        ? urlForImage(hero.image)
+        : "/teff2.webp"
+    }
+    alt={hero.image?.alt || "Teff flour"}
+    className="relative z-0 h-[300px] w-[350px] object-contain drop-shadow-2xl sm:h-[360px] sm:w-[430px] lg:h-[440px] lg:w-[520px]"
   />
 
 </div>

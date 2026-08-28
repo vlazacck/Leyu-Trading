@@ -2,6 +2,18 @@ export interface SanityImage {
   asset: { _ref: string; _id?: string };
   alt?: string;
   url?: string;
+  crop?: {
+    top: number;
+    bottom: number;
+    left: number;
+    right: number;
+  };
+  hotspot?: {
+    x: number;
+    y: number;
+    height: number;
+    width: number;
+  };
 }
 
 export interface SeoData {

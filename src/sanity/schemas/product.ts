@@ -16,7 +16,7 @@ export default defineType({
       name: "type",
       title: "Type",
       type: "string",
-      options: { list: ["flour", "grain"] },
+      options: { list: ["flour"] },
     }),
     defineField({
       name: "variant",

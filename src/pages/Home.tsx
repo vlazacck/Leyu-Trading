@@ -58,7 +58,7 @@ export default function Home() {
 </div>
       </section>
 
-      {/* Ancient supergrain */}
+      {/* Teff flour heritage */}
       <section className="bg-white py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 lg:grid-cols-2 lg:px-10">
           <motion.div
@@ -102,8 +102,8 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <SectionTitle
             eyebrow="Why Teff"
-            title="Nourishment in Every Grain"
-            description="Health-conscious consumers and food industry professionals trust teff for its exceptional nutritional profile."
+            title="Nourishment in Every Spoonful"
+            description="Health-conscious consumers and food industry professionals trust teff flour for its exceptional nutritional profile."
           />
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((b, i) => (
@@ -130,7 +130,7 @@ export default function Home() {
             </h2>
             <p className="mt-5 text-[15px] leading-relaxed text-cream/75">
              Maed Export Trading produces premium-quality teff flour directly from Ethiopian farms, using modern
-              processing techniques that preserve the grain's natural nutritional value. We combine
+              processing techniques that preserve its natural nutritional value. We combine
               sustainable farming practices, rigorous quality control, and food-safety standards with a
               dedication to reliable export service — connecting traditional Ethiopian agriculture to
               modern international food production.

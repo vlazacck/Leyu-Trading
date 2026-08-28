@@ -15,7 +15,7 @@ export default function Footer() {
   )}
           <span className="font-display text-xl font-semibold">{settings?.companyName ?? "  Maed Export Trading "}</span>
           <p className="max-w-xs text-sm leading-relaxed text-cream/65">
-            Premium Ethiopian teff flour and grain, exported to food manufacturers, distributors, and
+            Premium Ethiopian teff flour, exported to food manufacturers, distributors, and
             wholesalers around the world.
           </p>
         </div>
